@@ -1,133 +1,147 @@
-# MvcOnlineTicariOtomasyon
+# Online Ticari Otomasyon Sistemi
 
 [TR]
 
-**ASP.NET MVC Kullanılarak Geliştirilmiş Kapsamlı Online Ticari Otomasyon Sistemi**
+**ASP.NET MVC ile Geliştirilmiş Online Ticari Otomasyon Sistemi**
 
-[![ASP.NET MVC](https://img.shields.io/badge/Framework-ASP.NET_MVC-602C78.svg)](https://dotnet.microsoft.com/apps/aspnet/mvc)
 [![C#](https://img.shields.io/badge/Language-C%23-blue.svg)](https://docs.microsoft.com/en-us/dotnet/csharp/)
-[![Database](https://img.shields.io/badge/Database-SQL_Server-CC2927.svg)](https://www.microsoft.com/en-us/sql-server)
-[![GitHub repo size](https://img.shields.io/github/repo-size/abdullahhaktan/MvcOnlineTicariOtomasyon)](https://github.com/abdullahhaktan/MvcOnlineTicariOtomasyon)
+[![ASP.NET MVC](https://img.shields.io/badge/Framework-ASP.NET%20MVC-brightgreen.svg)](https://dotnet.microsoft.com/apps/aspnet/mvc)
+[![Entity Framework](https://img.shields.io/badge/ORM-Entity%20Framework-blueviolet.svg)](https://docs.microsoft.com/en-us/ef/)
+[![GitHub repo size](https://img.shields.io/github/repo-size/abdullahhaktan/OnlineTicariOtomasyonSistemi)](https://github.com/abdullahhaktan/OnlineTicariOtomasyonSistemi)
 
 ---
 
 ## 💻 Proje Hakkında
 
-Bu proje, **ASP.NET MVC** mimarisi kullanılarak geliştirilmiş, **tam kapsamlı bir online ticari otomasyon sistemi** simülasyonudur. Proje, bir e-ticaret platformunun veya şirket içi envanter yönetim sisteminin temel işlevlerini kapsayarak, **gelişmiş veritabanı etkileşimleri** ve **kullanıcı yetkilendirme** pratiklerini göstermektedir.
+Bu proje, **ASP.NET MVC** mimarisi kullanılarak geliştirilmiş, web tabanlı kapsamlı bir **Online Ticari Otomasyon Sistemi**'dir. Sistem, ticari süreçlerin yönetimi, stok takibi, satış raporlama ve kullanıcı etkileşimi gibi temel işlevleri modern bir arayüzle sunar.
+
+### ⚙️ Teknik Altyapı
+
+* **Mimari:** ASP.NET MVC
+* **Programlama Dili:** C#
+* **Veri Erişim:** Entity Framework (`Code First` Yaklaşımı ile oluşturulmuştur.)
+* **Sorgulama:** LINQ Sorguları kullanılarak Entity Framework ile gerçekleştirilmiştir.
+* **Arayüz:** AdminLTE Template kullanılarak modern ve duyarlı bir kullanıcı deneyimi sağlanmıştır.
+* **Modülerlik:** "Hızlı Bakış" tabloları gibi önemli bileşenler **Partial View** yapısıyla modüler ve yeniden kullanılabilir şekilde tasarlanmıştır.
+* **Grafikler:** ASP.NET'in sunduğu yerleşik grafik yapıları kullanılarak dinamik ve görsel raporlama sağlanmıştır (Örn: Ürün - Stok Grafiği).
 
 ---
 
-## ✨ Temel Özellikler
+## ✨ Ana Özellikler
 
-### Mimari ve Teknik Uygulamalar
-* **Model-View-Controller (MVC) Mimarisi:** İş mantığı, veri ve arayüz arasında net bir ayrım sağlayarak sürdürülebilir bir kod tabanı oluşturulmuştur.
-* **Entity Framework (Code First/Database First):** Veritabanı ile Object-Relational Mapping (ORM) kullanılarak hızlı ve güvenilir veri işlemleri gerçekleştirilmiştir.
-* **Repository/Unit of Work (Olası Kullanım):** Veri erişim katmanının test edilebilirliğini ve esnekliğini artırmak için tasarım desenleri kullanılmıştır.
-* **C# ile Geliştirme:** Tüm arka uç mantığı ve veri işleme süreçleri C# dili ile yazılmıştır.
+Sistem, yetki seviyelerine göre farklı işlevler sunar:
 
-### Modül ve İşlevsellik
-* **Ürün ve Stok Yönetimi:** Ürün ekleme, kategorilendirme, stok takibi ve envanter raporlaması.
-* **Cari (Müşteri/Tedarikçi) Takibi:** Müşteri ve tedarikçi bilgilerinin kaydı, listelenmesi ve detaylı hareket takibi.
-* **Satış ve İşlem Yönetimi:** Sipariş/satış kayıtlarının tutulması, faturalandırma ve gelir-gider takibi.
-* **Kullanıcı ve Rol Yönetimi:** Farklı yetki seviyelerine sahip kullanıcılar için **kimlik doğrulama (Authentication)** ve **yetkilendirme (Authorization)** sistemi.
-* **Raporlama:** Görsel raporlar ve istatistikler sunarak ticari verilerin analiz edilmesini sağlar (Örn: En çok satan ürünler, aylık gelir grafikleri).
+### 1. Kullanıcı Girişi ve Yetkilendirme
+Sisteme iki ana yetki seviyesinde giriş yapılabilir:
+* **Admin Girişi:** Tüm yönetimsel ve raporlama işlevlerine erişim sağlar.
+* **Cari Girişi (Müşteri/Tedarikçi):** Kendi siparişlerini, kargo takibini ve profil bilgilerini yönetebilir.
+
+### 2. Yönetim ve Raporlama (Admin Paneli)
+* **Hızlı Bakış Tabloları:** Kategori, Müşteri/Şehir ve Departman/Personel bazlı anlık özet verileri gösteren Partial View'ler.
+* **Dinamik Stok/Satış Grafikleri:** Ürün bazında stok durumunu gösteren pasta grafik gibi görsel raporlama araçları.
+* **CRUD İşlemleri:** Ürün, kategori, cari, personel ve giderler üzerinde Silme (`Emin misiniz?` onayı ile), Güncelleme ve Satış yapma.
+
+### 3. Cari Hesap İşlemleri (Cari Paneli)
+* **Profil Yönetimi:** Cari, kendi ad-soyad, e-posta, toplam satış ve toplam ürün sayısı gibi bilgilerini görüntüleyebilir.
+* **Sipariş ve Kargo Takibi:** Mevcut siparişlerini listeleyebilir ve kargolarının durumunu takip edebilir.
+* **Duyurular:** Sistemden gelen önemli duyuruları kontrol edebilir.
+* **Mesajlaşma:** Sistemdeki diğer carilerle mesaj gönderebilme şansı vardır.
 
 ---
 
 ## 🚀 Nasıl Çalıştırılır?
 
-Bu proje, bir **SQL Server** veritabanı ve **Visual Studio** ortamını gerektirir.
-
 1.  **Projeyi Klonlama:**
     ```bash
-    git clone [https://github.com/abdullahhaktan/MvcOnlineTicariOtomasyon](https://github.com/abdullahhaktan/MvcOnlineTicariOtomasyon)
-    cd MvcOnlineTicariOtomasyon
+    git clone [https://github.com/abdullahhaktan/OnlineTicariOtomasyonSistemi](https://github.com/abdullahhaktan/OnlineTicariOtomasyonSistemi)
+    cd OnlineTicariOtomasyonSistemi
     ```
 
-2.  **Veritabanı Kurulumu:**
-    * **SQL Server Management Studio'yu** açın ve yeni bir veritabanı oluşturun.
-    * Veritabanı şemasını (tablolar ve ilişkiler) oluşturmak için projenin ilgili veri erişim katmanındaki (genellikle `Web.config` veya `App.config` içinde belirtilir) **Entity Framework Migration** komutlarını çalıştırın veya manuel SQL scriptlerini uygulayın.
+2.  **Projeyi Açma:**
+    * Visual Studio kullanarak kök dizindeki `.sln` (Solution) dosyasını açın.
 
-3.  **Bağlantı Dizesini Ayarlama:**
-    * Projenin ana yapılandırma dosyasındaki (`Web.config` veya modern projelerde `appsettings.json`) **SQL Server bağlantı dizesini** kendi yerel sunucu adınıza ve veritabanı adınıza göre güncelleyin.
+3.  **Veritabanı Ayarları:**
+    * Entity Framework Code First yaklaşımı kullanıldığı için, bağlantı dizgesini (`Connection String`) kontrol edin.
+    * Veritabanı sunucunuzu (`web.config` veya ilgili yapılandırma dosyasında) doğru şekilde ayarlayın ve migrasyonları uygulayarak tabloların oluşmasını sağlayın.
 
-4.  **Projeyi Başlatma:**
-    * **Visual Studio** ile `.sln` dosyasını açın.
-    * Gerekliyse **NuGet** paketlerini geri yükleyin.
-    * Uygulamayı çalıştırın (F5). Uygulama, belirtilen yerel adreste tarayıcınızda açılacaktır.
+4.  **Çözümü Derleme ve Çalıştırma:**
+    * Visual Studio'da çözümü derleyin (`Build Solution` veya F6).
+    * Uygulamayı çalıştırın (**F5**). Uygulama, öncelikle yetki seçme ekranı (**GİRİŞ FORMU**) ile başlayacaktır.
 
 ---
 ---
 
 [EN]
 
-# MvcOnlineTicariOtomasyon
+# Online Commercial Automation System
 
-**Comprehensive Online Commercial Automation System Developed Using ASP.NET MVC**
+**Online Commercial Automation System Developed with ASP.NET MVC**
 
 ---
 
 ## 💻 About the Project
 
-This project is a **comprehensive online commercial automation system** simulation developed using the **ASP.NET MVC** architecture. It covers the core functionalities of an e-commerce platform or an internal inventory management system, demonstrating **advanced database interactions** and **user authorization** practices.
+This project is a comprehensive **Online Commercial Automation System** developed using the **ASP.NET MVC** architecture. The system provides essential functions such as managing commercial processes, inventory tracking, sales reporting, and user interaction through a modern interface.
+
+### ⚙️ Technical Stack
+
+* **Architecture:** ASP.NET MVC
+* **Language:** C#
+* **Data Access:** Entity Framework (using the `Code First` approach)
+* **Querying:** Implemented with LINQ Queries via Entity Framework.
+* **UI:** AdminLTE Template is used for a modern and responsive user experience.
+* **Modularity:** Key components like the "Quick Look" tables are designed as **Partial Views** for a modular and reusable structure.
+* **Charts:** Dynamic and visual reporting is provided using ASP.NET's built-in charting structures (e.g., Product - Stock Chart).
 
 ---
 
 ## ✨ Core Features
 
-### Architecture and Technical Implementation
-* **Model-View-Controller (MVC) Architecture:** Ensures code maintainability by providing a clear separation between business logic, data, and the user interface.
-* **Entity Framework (Code First/Database First):** Utilizes Object-Relational Mapping (ORM) for fast and reliable database operations.
-* **Repository/Unit of Work (Potential Use):** Design patterns used to enhance the testability and flexibility of the data access layer.
-* **C# Development:** All backend logic and data processing are written in the C# language.
+The system offers different functionalities based on authorization levels:
 
-### Modules and Functionality
-* **Product and Stock Management:** Includes adding products, categorization, inventory tracking, and stock reporting.
-* **Customer/Supplier (Account) Tracking:** Recording and listing of customer and supplier information, along with detailed transaction tracking.
-* **Sales and Transaction Management:** Recording orders/sales, invoicing, and tracking income/expenses.
-* **User and Role Management:** **Authentication** and **Authorization** system for users with different access levels.
-* **Reporting:** Provides visual reports and statistics for commercial data analysis (e.g., top-selling products, monthly revenue charts).
+### 1. User Login and Authorization
+The system supports two main authorization levels:
+* **Admin Login:** Provides access to all administrative and reporting functions.
+* **Current Account (Customer/Supplier) Login:** Can manage their own orders, cargo tracking, and profile information.
+
+### 2. Administration and Reporting (Admin Panel)
+* **Quick Look Tables:** Partial Views displaying instant summary data based on Category, Customer/City, and Department/Personnel.
+* **Dynamic Stock/Sales Charts:** Visual reporting tools like pie charts showing product-based stock status.
+* **CRUD Operations:** Create, Read, Update, and Delete operations on products, categories, current accounts, personnel, and expenses (with a "Are you sure?" confirmation for deletion).
+
+### 3. Current Account Operations (Client Panel)
+* **Profile Management:** Current accounts can view their personal information, total sales, and total product count.
+* **Order and Cargo Tracking:** They can list their existing orders and track the status of their shipments.
+* **Announcements:** Can check important announcements from the system.
+* **Messaging:** Users have the ability to send messages to other current accounts within the system.
 
 ---
 
 ## 🚀 How to Run
 
-This project requires a **SQL Server** database and a **Visual Studio** environment.
-
 1.  **Cloning the Project:**
     ```bash
-    git clone [https://github.com/abdullahhaktan/MvcOnlineTicariOtomasyon](https://github.com/abdullahhaktan/MvcOnlineTicariOtomasyon)
-    cd MvcOnlineTicariOtomasyon
+    git clone [https://github.com/abdullahhaktan/OnlineTicariOtomasyonSistemi](https://github.com/abdullahhaktan/OnlineTicariOtomasyonSistemi)
+    cd OnlineTicariOtomasyonSistemi
     ```
 
-2.  **Database Setup:**
-    * Open **SQL Server Management Studio** and create a new database.
-    * Apply the **Entity Framework Migration** commands or manual SQL scripts found in the project's data access layer (usually specified in `Web.config` or `App.config`) to build the database schema (tables and relationships).
+2.  **Opening the Project:**
+    * Open the root directory's **`.sln`** (Solution) file using Visual Studio.
 
-3.  **Configuring the Connection String:**
-    * Update the **SQL Server connection string** in the project's main configuration file (`Web.config` or `appsettings.json` in modern versions) to match your local server name and database name.
+3.  **Database Configuration:**
+    * Check the `Connection String`.
+    * Configure your database server and apply migrations to create the tables.
 
-4.  **Starting the Project:**
-    * Open the `.sln` file with **Visual Studio**.
-    * Restore all **NuGet** packages if necessary.
-    * Run the application (F5). The application will open in your browser at the specified local address.
-
----
----
-
-![ticari1](https://github.com/user-attachments/assets/a96b1ec2-4b44-426b-ab50-38c52a081741)
+4.  **Building and Running:**
+    * Build the solution in Visual Studio.
+    * Start the application (**F5**).
 
 ---
 
-![2](https://github.com/user-attachments/assets/1e45f0e3-f247-40b4-b72f-ccfdaa1865e9)
+## 📸 Ekran Görüntüleri
 
----
+Projenin temel arayüzlerini ve yetki seviyelerine göre ekranlarını gösteren kompakt tablo:
 
-![3](https://github.com/user-attachments/assets/6a0509ad-5097-4d97-a23a-b83b1324b7ac)
-
----
-![4](https://github.com/user-attachments/assets/0ced139e-dbc4-4f4a-ae7b-65257ac7b98a)
-
----
-
-![5](https://github.com/user-attachments/assets/a9ec9439-dae3-4c4e-89e6-52b2b5d653a7)
+| Giriş Formu | Hızlı Bakış Tabloları | Ürün Stok Grafiği | Cari Profil ve Mesajlaşma | Ürün Yönetimi (Uyarı) |
+| :---: | :---: | :---: | :---: | :---: |
+| ![Giriş Formu](https://github.com/user-attachments/assets/835aa912-545b-43da-9b3a-e7a8b5b43a00) | ![Hızlı Bakış Tabloları](https://github.com/user-attachments/assets/667c8d4f-4c7a-4f89-9d79-191fae7ad7fb) | ![Ürün Stok Grafiği](https://github.com/user-attachments/assets/37487135-0917-48ba-9381-5aeca30be117) | ![Cari Profil ve Mesajlaşma](https://github.com/user-attachments/assets/7754c50e-5497-427f-b370-e86a2757902e) | ![Ürün Silme Onayı](https://github.com/user-attachments/assets/404b235f-8d79-4e32-a584-5c3e2c474b94) |
